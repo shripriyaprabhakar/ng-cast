@@ -14,14 +14,15 @@ angular.module('video-player')
         this.currentVideo = videos[0];
       };
       
-      this.handleSearch = () => {
-        youTube.getVideo(this.setVideo);
+      this.handleSearch = (query) => {
+
+        youTube.getVideo(query, this.setVideo);
       };
 
       this.handleClick = (video) => {
       
-        //this.currentVideo = video; 
-        this.handleSearch();
+        this.currentVideo = video; 
+        
       };
     },
 
