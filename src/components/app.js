@@ -4,14 +4,24 @@ angular.module('video-player')
     // TODO
     
 
-    controller: function() {
+    controller: function(youTube) {
       this.videos = window.exampleVideoData;
       this.currentVideo = window.exampleVideoData[0];
-      //debugger;
+      
+      this.setVideo = (videos) => {
+        // console.log(videos);
+        this.videos = videos;
+        this.currentVideo = videos[0];
+      };
+      
+      this.handleSearch = () => {
+        youTube.getVideo(this.setVideo);
+      };
+
       this.handleClick = (video) => {
-        console.log('clicked');
-        console.log(video);
-        this.currentVideo = video; 
+      
+        //this.currentVideo = video; 
+        this.handleSearch();
       };
     },
 
